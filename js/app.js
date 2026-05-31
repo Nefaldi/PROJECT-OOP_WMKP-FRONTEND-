@@ -53,7 +53,9 @@ class SessionManager extends BaseStorage {
   }
 }
 
-const API_URL = 'http://localhost:3000/api';
+// Ganti URL ini dengan URL backend Vercel kamu jika sudah dideploy
+// Contoh: const API_URL = 'https://backend-kamu.vercel.app/api';
+const API_URL = 'https://project-oop-wmkp-backend.vercel.app/api';
 
 // ============================================================
 // ENCAPSULATION — OrderRepository (API Backend)
