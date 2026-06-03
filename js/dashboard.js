@@ -242,7 +242,7 @@ class MenuManagerComponent extends UIComponent {
   openAddModal() {
     this.#editingId = null;
     document.getElementById('menuModalTitle').textContent = 'Tambah Item Menu';
-    ['editMenuId','menuName','menuPrice','menuDesc','menuEmoji','menuImage'].forEach(id => {
+    ['editMenuId','menuName','menuPrice','menuDesc','menuImage'].forEach(id => {
       document.getElementById(id).value = '';
     });
     document.getElementById('menuCategory').value = 'makanan';
@@ -262,7 +262,6 @@ class MenuManagerComponent extends UIComponent {
     document.getElementById('menuCategory').value = item.category;
     document.getElementById('menuPrice').value    = item.price;
     document.getElementById('menuDesc').value     = item.desc;
-    document.getElementById('menuEmoji').value    = item.emoji || '';
     document.getElementById('menuImage').value    = item.image || '';
     document.getElementById('menuAvailable').checked = item.available !== false;
     this.#showModal();
@@ -273,7 +272,6 @@ class MenuManagerComponent extends UIComponent {
     const category  = document.getElementById('menuCategory').value;
     const price     = parseInt(document.getElementById('menuPrice').value, 10);
     const desc      = document.getElementById('menuDesc').value.trim();
-    const emoji     = document.getElementById('menuEmoji').value.trim();
     const image     = document.getElementById('menuImage').value.trim();
     const available = document.getElementById('menuAvailable').checked;
 
@@ -282,7 +280,7 @@ class MenuManagerComponent extends UIComponent {
       return;
     }
 
-    const data = { name, category, price, desc, emoji, image, available };
+    const data = { name, category, price, desc, image, available };
 
     if (this.#editingId) {
       await MenuStore.update(this.#editingId, data);
